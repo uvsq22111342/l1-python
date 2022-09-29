@@ -1,4 +1,4 @@
-
+import time
 
 def tempsEnSecondes(temps):
     """ Renvoie la valeur en seconde de temps donné comme jour, heure, minute, seconde."""
@@ -14,10 +14,7 @@ def secondeEnTemps(secondes):
     return (j, h, min, secondes)
 
 
-temps = secondeEnTemps(342094)
-print(type(temps))
-print(tempsEnSecondes(temps))
-print(temps[0], "jours", temps[1], "heures", temps[2], "minutes", temps[3], "secondes")
+
 
 
 def afficheTemps(temps):
@@ -56,4 +53,60 @@ def demandeTemps():
 
 
 
-afficheTemps(demandeTemps())
+
+def sommeTemps(temps1,temps2):
+    return secondeEnTemps(tempsEnSecondes(temps1) + tempsEnSecondes(temps2))
+
+
+def proportionTemps(temps = (0, 0, 0, 0) ,proportion = 0.1):
+    return secondeEnTemps(tempsEnSecondes(temps) * proportion)
+
+
+
+
+def tempsEndate(temps):
+    ans = 1970 + (temps[0] // 365)
+    jour = temps[0] % 365
+    h = temps[1]
+    m = temps[2]
+    s = temps[3]
+    return (ans, jour, h, m, s)
+
+
+def afficheDate(temps):
+    t = temps
+    if t[1] < 31:
+        print(t[1], "Janvier", end = "")
+    elif t[1] < 59:
+        print(t[1] - 31, "Février", end = "")
+    elif t[1] < 90:
+        print(t[1] - 59, "Mars", end = "")
+    elif t[1] < 120:
+        print(t[1] - 90, "Avril", end = "")
+    elif t[1] < 151:
+        print(t[1] - 120, "Mai", end = "")
+    elif t[1] < 181:
+        print(t[1] - 151, "Juin", end = "")
+    elif t[1] < 212:
+        print(t[1] - 181, "Juillet", end = "")
+    elif t[1] < 242:
+        print(t[1] - 212, "Août", end = "")
+    elif t[1] < 273:
+        print(t[1] - 242, "Septembre", end = "")
+    elif t[1] < 303:
+        print(t[1] - 273, "Octobre", end = "")
+    elif t[1] < 334:
+        print(t[1] - 303, " Novembre", end = "")
+    elif t[1] < 364:
+        print(t[1] - 334, "Décembre", end = "")
+    print("",t[0], "à", t[2], ":", t[3], ": ", t[4])
+
+temps = secondeEnTemps(1000000000)
+afficheTemps(temps)
+temps = tempsEndate(temps)
+print(temps)
+afficheDate(temps)
+
+
+print(time.gmtime(1000000000))
+print(time.localtime(1000000000))
