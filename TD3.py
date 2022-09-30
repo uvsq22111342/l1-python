@@ -127,3 +127,23 @@ temps = secondeEnTemps(1000000000)
 afficheTemps(temps)
 afficheDate(tempsEnDateBisextile(temps))
 print(time.gmtime())
+
+
+def verifie(liste_temps):
+    for i in range(len(liste_temps)):
+        S = 0
+        L = liste_temps[i]
+        for j in range(4):
+            if L[j] <= 48:
+                S = S + L[j]
+            else:
+                print("L'employé a travaillé ", L[j] - 48, "heures de trop\
+                     dans la semaine", j + 1, "du mois", i)
+                S = S + L[j]
+        if S > 140:
+            print("L'employé a travaillé", S - 140, "heures en trop\
+                 dans le mois", i + 1)
+
+
+liste_temps = [[1, 2, 39, 34], [0, 1, 9, 4], [0, 29, 39, 51], [0, 31, 13, 46], [50, 50, 50, 50]]
+verifie(liste_temps)
