@@ -132,7 +132,7 @@ print(time.gmtime())
 def verifie(liste_temps):
     for i in range(len(liste_temps)):
         S = 0
-        L = liste_temps[i]    
+        L = liste_temps[i]  
         for j in range(4):
             if L[j] <= 48:
                 S = S + L[j]
