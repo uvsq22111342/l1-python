@@ -146,4 +146,4 @@ def verifie(liste_temps):
 
 
 liste_temps = [[1, 2, 39, 34], [0, 1, 9, 4], [0, 29, 39, 51], [0, 31, 13, 46], [50, 50, 50, 50]]
-verifie(liste_temps)
+verifie(liste_temps) 
